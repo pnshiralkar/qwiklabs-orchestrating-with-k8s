@@ -6,10 +6,11 @@ spec:
   replicas: 4
   selector:
     matchLabels:
-      app: hello
+      app: sample
+      role: frontend
+      env: production
   template:
     metadata:
-      name: frontend
       labels:
         app: sample
         role: frontend
@@ -17,7 +18,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: gcr.io/qwiklabs-gcp-00-e7cde61d8d10/sample-app
+        image: gcr.io/qwiklabs-gcp-01-f8687acbdf07/sample-app
         resources:
           limits:
             memory: "500Mi"

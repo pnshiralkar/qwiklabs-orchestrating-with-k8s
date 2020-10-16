@@ -3,13 +3,14 @@ apiVersion: apps/v1
 metadata:
   name: sample-backend-canary
 spec:
-  replicas: 1  
+  replicas: 1
   selector:
     matchLabels:
-      app: hello
+      app: sample
+      role: backend
+      env: canary
   template:
     metadata:
-      name: backend
       labels:
         app: sample
         role: backend
@@ -17,7 +18,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: gcr.io/qwiklabs-gcp-00-e7cde61d8d10/sample-app
+        image: gcr.io/qwiklabs-gcp-01-f8687acbdf07/sample-app
         resources:
           limits:
             memory: "500Mi"
